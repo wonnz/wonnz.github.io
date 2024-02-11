@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafix Clothing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.4/jquery.rateyo.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="header">
+        <a href="#"><img src="Grafix logo.jpg" height="70" width="250"  class="logo" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-shopping-bag" style="color: white;" ></i></a></li>
+                <a href="#" id="close"><i class="fa-regular fa-circle-xmark"></i></a>
+
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-shopping-bag" style="color: white;" ></i></a>
+            <i id="bar" class="fa-solid fa-outdent" style="color: white;"></i>
+
+        </div>
+    </section>
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-container">
+        <div class="single-row-image">
+            <img src="product/pro2.jpg" width="100%" id="MainImg" alt="">
+        
+    
+</div>
+        
+        <div class="single-pro-details">
+            <h6>Street Wear T-shirt</h6>
+            <h4>White/Red</h4>
+            <h2> ₱549</h2>
+            <select id="sizeSelect">
+                <option>Select Size</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="XL">XL</option>
+            </select>
+            <input type="number" id="quantityInput" value="1">
+            <button id="add-to-cart-btn" class="normal">Add To Cart</button>
+            <h4> Product Details</h4>
+            <span>Graphic tees are a type of t-shirt that features a graphic design, such as a logo, image, or text. They are a popular clothing item for people of all ages and genders. Graphic tees can be used to express personal style, interests, or beliefs.
+                "Don't mind about the others, Just play your own game". The message is encouraging people to not worry about what others think and to focus on their own goals and dreams.</span>
+                 
+                
+        </div>
+    </section>
+
+
+
+    <section id="newletter" class="section-p1 section-m1">
+        <div class="newtext">
+            <h4>Sign Up For Newsletters</h4>
+            <p> Get E-email updates about out latest shop and <span>special offers</span>.
+            </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="You email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+    
+    <footer class="section-p1">
+        <div id="logo" class="col">
+            <h3>GRAFIX CLO.</h3><br>
+            <H4>Contact</H4>
+            <p><strong>Address:</strong>420 Washington Road, Street 42, Manila </p>
+            <p><strong>Phone:</strong> +63 932 5718 915 </p>
+            <p><strong>Hours:</strong> 10:00 a.m - 9:00 p.m, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-pinterest-p"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Condition</a>
+        <a href="#">Contact Us</a>
+    </div>  
+
+    <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help </a>
+    </div>    
+
+
+    <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+            <img src="pay/store1.png"   alt="">
+            <img src="pay/play.png"  alt="">
+        </div>
+        <p> Secured Payment Gateways</p>
+        <img src="pay/visa.png"  alt="">
+    </div>
+
+    <div class="copyright">
+        <p>ⓒ 2023, Grafix Clo. Etc - HTML CSS Ecommerce Template</p>
+    </div>
+    </footer>
+
+<!-- Inside the <select> element, add an id attribute -->
+
+    
+    <!-- Modify the Add To Cart button to include an id attribute -->
+    <button id="add-to-cart-btn" class="normal">Add To Cart</button>
+    
+    <!-- Add the following script at the end of your HTML body -->
+    <script>
+document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+    var selectedSize = document.getElementById('sizeSelect').value;
+    var selectedQuantity = parseInt(document.getElementById('quantityInput').value); // Get selected quantity
+
+    if (selectedSize !== 'Select Size' && selectedQuantity > 0) {
+        // Create an object representing the product
+        var productId = ''; // Initialize product ID variable
+
+        // Generate unique product ID based on size
+        switch (selectedSize) {
+            case 'Small':
+                productId = 'reddtbss';
+                break;
+            case 'Medium':
+                productId = 'reddtbsm';
+                break;
+            case 'Large':
+                productId = 'reddtbsl';
+                break;
+            case 'XL':
+                productId = 'reddtbsxl';
+                break;
+            default:
+                productId = ''; // Default to empty string if size is not recognized
+        }
+
+        var product = {
+            id: productId, // Unique ID for the product based on size
+            name: 'White/Red',
+            price: 549,
+            size: selectedSize,
+            quantity: selectedQuantity // Add selected quantity
+        };
+
+        // Get the existing cart items from localStorage or initialize an empty array
+        var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Add the new product to the cart
+        cartItems.push(product);
+
+        // Store the updated cart items back to localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Redirect to cart.html after adding the item to the cart
+        window.location.href = 'cart.html';
+    } else {
+        alert('Please select a size and quantity before adding to cart.');
+    }
+});
+    </script>
+</body>
+</html>

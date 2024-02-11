@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <!-- Header -->
+     <section id="header">
+        <a href="#"><img src="Grafix logo.jpg" height="70" width="250"  class="logo" alt=""></a>
+    
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-shopping-bag" style="color: white;" ></i></a></li>
+                <a href="#" id="close"><i class="fa-regular fa-circle-xmark"></i></a>
+    
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-shopping-bag" style="color: white;" ></i></a>
+            <i id="bar" class="fa-solid fa-outdent" style="color: white;"></i>
+    
+        </div>
+        </section>
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+        <div class="order-summary">
+            <!-- Order summary will be displayed here -->
+        </div>
+        <button id="confirm-order-btn">Confirm Order</button>
+    </div>
+
+    <!-- Modal for order confirmation -->
+    <div id="order-confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Order Confirmation</h2>
+            <p>Your order has been confirmed!</p>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+        <div id="logo" class="col">
+            <h3>GRAFIX CLO.</h3><br>
+            <H4>Contact</H4>
+            <p><strong>Address:</strong>420 Washington Road, Street 42, Manila </p>
+            <p><strong>Phone:</strong> +63 932 5718 915 </p>
+            <p><strong>Hours:</strong> 10:00 a.m - 9:00 p.m, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Condition</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help </a>
+        </div>
+
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="pay/store1.png" alt="">
+                <img src="pay/play.png" alt="">
+            </div>
+            <p> Secured Payment Gateways</p>
+            <img src="pay/visa.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>ⓒ 2023, Grafix Clo. Etc - HTML CSS Ecommerce Template</p>
+        </div>
+    </footer>
+    <script>
+        // Get a reference to the button and the order summary container
+        const confirmOrderBtn = document.getElementById('confirm-order-btn');
+        const orderSummaryContainer = document.querySelector('.order-summary');
+
+        // Function to display the order summary
+        function displayOrderSummary() {
+            // Get the order details (you need to replace this with your actual order details)
+            const orderDetails = "Your order summary goes here."; // Replace this with your order details
+
+            // Create a new paragraph element to display the order details
+            const orderSummaryParagraph = document.createElement('p');
+            orderSummaryParagraph.textContent = orderDetails;
+
+            // Clear any existing content in the order summary container
+            orderSummaryContainer.innerHTML = '';
+
+            // Append the new order summary paragraph to the container
+            orderSummaryContainer.appendChild(orderSummaryParagraph);
+        }
+
+        // Event listener for the confirm order button
+        confirmOrderBtn.addEventListener('click', function() {
+            // Display the order summary when the button is clicked
+            displayOrderSummary();
+        });
+    </script>
+</body>
+</html>

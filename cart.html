@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafix Clothing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.4/jquery.rateyo.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="header">
+        <a href="#"><img src="Grafix logo.jpg" height="70" width="250" class="logo" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-shopping-bag" style="color: white;"></i></a>
+                </li>
+                <a href="#" id="close"><i class="fa-regular fa-circle-xmark"></i></a>
+
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-shopping-bag" style="color: white;"></i></a>
+            <i id="bar" class="fa-solid fa-outdent" style="color: white;"></i>
+
+        </div>
+    </section>
+
+    <section id="page-header" class="about-header">
+
+        <h2>#Your Cart</h2>
+
+        <p> All your items are here! </p>
+
+    </section>
+
+    <section id="cart" class="section-p1">
+        <table width="100%" id="cart-table">
+            <thead>
+                <tr>
+                    <th>Remove</th>
+                    <th>Item ID</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <div id="subtotal" class="section-p1">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td id="cart-subtotal">₱0</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong id="cart-total">₱0</strong></td>
+                </tr>
+            </table>
+            <a href="checkout.html"><button class="normal">Proceed to checkout</button></a>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div id="logo" class="col">
+            <h3>GRAFIX CLO.</h3><br>
+            <H4>Contact</H4>
+            <p><strong>Address:</strong>Leyte St. Sampaloc Manila</p>
+            <p><strong>Phone:</strong> +63 932 5718 915 </p>
+            <p><strong>Hours:</strong> 10:00 a.m - 9:00 p.m, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-pinterest-p"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Condition</a>
+        <a href="#">Contact Us</a>
+    </div>  
+
+    <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help </a>
+    </div>    
+
+
+    <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+            <img src="pay/store1.png"   alt="">
+            <img src="pay/play.png"  alt="">
+        </div>
+        <p> Secured Payment Gateways</p>
+        <img src="pay/visa.png"  alt="">
+    </div>
+
+    <div class="copyright">
+        <p>ⓒ 2023, Grafix Clo. Etc - HTML CSS Ecommerce Template</p>
+    </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+       <script>
+    // Sample cart items (you can replace it with your actual cart items)
+    let cartItems = [];
+
+    // Function to generate a unique ID
+    function generateUniqueId() {
+        return '_' + Math.random().toString(36).substr(2, 9);
+    }
+
+// Function to render cart items
+function renderCartItems() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    let cartSubtotal = 0;
+
+    cartItemsContainer.innerHTML = ''; // Clear existing content
+
+    // Filter out items with undefined IDs
+    const validCartItems = cartItems.filter(item => item.id !== undefined);
+
+    validCartItems.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        cartSubtotal += subtotal;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><button class="remove-item" data-id="${item.id}">Remove</button></td>
+            <td>${item.id}</td>
+            <td><img src="images/${item.image}" alt="${item.name}" style="width: 50px;"></td>
+            <td>${item.name}</td>
+            <td>${item.size}</td>
+            <td>₱${item.price}</td>
+            <td><input type="number" value="${item.quantity}" class="item-quantity" data-id="${item.id}"></td>
+            <td>₱${subtotal}</td>
+        `;
+        cartItemsContainer.appendChild(row);
+    });
+
+    // Update cart subtotal and total
+    document.getElementById('cart-subtotal').textContent = `₱${cartSubtotal}`;
+    document.getElementById('cart-total').textContent = `₱${cartSubtotal}`;
+}
+
+
+// Event listener for quantity change
+document.addEventListener('change', function(event) {
+    if (event.target.classList.contains('item-quantity')) {
+        const itemId = event.target.dataset.id;
+        const newQuantity = parseInt(event.target.value);
+
+        // Update the quantity of the item in the cartItems array
+        cartItems.forEach(item => {
+            if (item.id === itemId) {
+                item.quantity = newQuantity;
+            }
+        });
+
+        // Re-render cart items with updated quantity
+        renderCartItems();
+
+        // Update localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+});
+
+// Event listener for remove item button
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('remove-item')) {
+        const itemId = event.target.dataset.id;
+        // Remove the item from the cartItems array based on itemId
+        cartItems = cartItems.filter(item => item.id !== itemId);
+        // Then, re-render the cart items
+        renderCartItems();
+        // Update localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+});
+
+// Get product data from localStorage (if any) when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const storedItems = JSON.parse(localStorage.getItem('cartItems'));
+    if (storedItems) {
+        cartItems = storedItems;
+        renderCartItems();
+    }
+});
+</script>
+</body>
+
+</html>
+
